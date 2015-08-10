@@ -175,8 +175,6 @@
 		});
 
 		$(document).click(function(e) {
-
-			//if (!$(e.target).closest(source).length) {
 			if (!$(e.target).closest('.dropdown').length) {
 		    	$('.dropdown dd ul').hide();
 		    	MenuEle.hide();
