@@ -155,9 +155,6 @@
 					ele.find("ul .DropDownSelectAll").click(function(e){
 						e.preventDefault();
 						ele.find("ul input:checkbox").attr("checked", true);
-						/*ele.find("ul input:checkbox").each(function(){
-							$(this).attr("checked", true);
-						});*/
 						source.find("option").attr("selected", true);
 						_setDisplayText();
 					});
