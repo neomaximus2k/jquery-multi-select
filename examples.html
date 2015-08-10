@@ -56,7 +56,7 @@
 
 <div class="divexample">
 	<h3>Custom Class</h3>
-	<pre>$('#example5').DropDown({'ItemClass': 'customclass'});</pre>
+	<pre>$('#example5').DropDown({'ShowHeader' : true, 'ItemClass': 'customclass'});</pre>
 	<select name="example5" id="example5" multiple="true"><option value="Brazil">Brazil</option><option value="France" checked="checked">France</option>
 	<option value="Germany">Germany</option></select>
 </div>
@@ -78,140 +78,21 @@
 	</select>
 </div>
 
-
-
-<!--
-<div>
-<p class="customclass"><input type="checkbox" name="ca1" value="United Kingdom" id="ca1" ><label for="ca1"><span></span>Check Box 1</label></p>
-</div>
-
-
-<label>Country: </label>
-<dl class="dropdown singleselect" id="dropdown">
-    <dt><span class="caret"></span>Please select the country</dt>
-    <dd>
-        <ul>
-            <li><label>Brazil</label></li>
-            <li><label>France</label></li>
-            <li><label>Germany</label></li>
-            <li><label>India</label></li>
-            <li><label>Japan</label></li>
-            <li><label>United Kingdom</label></li>
-        </ul>
-    </dd>
-</dl>
-
-<label>Countries: </label>
-<dl class="dropdown multiselect" id="dropdown">
-    <dt><span class="caret"></span>Please select the countries</dt>
-    <dd>
-        <ul>
-        	<li><div class="dropdownHeader"><button class="DropDownSelectAll">Select All</button><button class="DropDownDeSelectAll">Deselect All</button></div></li>
-            <li><label><input type="checkbox" >Brazil</label></li>
-            <li><label><input type="checkbox" >France</label></li>
-            <li><label><input type="checkbox" >Germany</label></li>
-            <li><label><input type="checkbox" >India</label></li>
-            <li><label><input type="checkbox" >Japan</label></li>
-            <li><label><input type="checkbox" >United Kingdom</label></li>
-        </ul>
-    </dd>
-</dl>
-
-<label>Countries: </label>
-<dl class="dropdown multiselect" id="dropdown">
-    <dt><span class="caret"></span>Please select the countries</dt>
-    <dd>
-        <ul>
-        	<li><div class="dropdownHeader"><button class="DropDownSelectAll">Select All</button><button class="DropDownDeSelectAll">Deselect All</button></div></li>
-            <li class="customclass"><input type="checkbox" id="c0" value="Brazil"><label for="c0"><span></span>Brazil</label></li>
-            <li class="customclass"><input type="checkbox" id="c1" value="France"><label for="c1"><span></span>France</label></li>
-            <li class="customclass"><input type="checkbox" id="c2" value="Germany"><label for="c2"><span></span>Germany</label></li>
-            <li class="customclass"><input type="checkbox" id="c3" value="India"><label for="c3"><span></span>India</label></li>
-            <li class="customclass"><input type="checkbox" id="c4" value="Japan"><label for="c4"><span></span>Japan</label></li>
-            <li class="customclass"><input type="checkbox" id="c5" value="United Kingdom"><label for="c5"><span></span>United Kingdom</label></li>
-        </ul>
-    </dd>
-</dl>
-
-<br><br><br><br><br><br><br>
-<select id="test"><option value="Brazil">Brazil</option><option value="France" checked="checked">France</option><option value="Germany">Germany</option></select><br>
-<select id="test2" multiple="true"><option value="Brazil">Brazil</option><option value="France" checked="checked">France</option><option value="Germany">Germany</option></select><br>
-
-</div>-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
 <script src="script/jquery.dropdown.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 $('#example1').DropDown();
-$('#example1a').DropDown();
+$('#example1a').DropDown({HideSource: false});
 $('#example2').DropDown({HideSource: false});
 $('#example2a').DropDown({HideSource: false});
 $('#example3').DropDown({'ShowHeader' : true, HideSource: false});
 $('#example4').DropDown({'ShowHeader' : true, 'AllText' : 'All Countries', 'NoneText' : '-- Please Select Country --', HideSource: false});
-$('#example5').DropDown({'ItemClass': 'customclass', HideSource: false});
+$('#example5').DropDown({'ShowHeader' : true, 'ItemClass': 'customclass', HideSource: false});
 $('#example5a').DropDown({'ItemClass': 'customclass', HideSource: false});
 $('#example6').DropDown({'NumSelectedText': 'countries selected', HideSource: false});
 
 
-/*
-
-$('.dropdown').each(function(idx){
-	var TopEle = $(this);
-	
-	var MenuEle = $(this).children("dd").children("ul");
-
-	var AllText = "All countries";
-	var NoneText = "Please select the countries";
-
-	TopEle.width(TopEle.children("dd").width()+20);
-
-	TopEle.children("dt").click(function(){
-		$('.dropdown ul').hide();
-		MenuEle.toggle();
-
-	})
-
-	if (TopEle.hasClass('singleselect'))
-	{
-		TopEle.find("li label").click(function(){
-			TopEle.children("dt").html($(this).text() + '<span class="caret"></span>');
-			MenuEle.hide();
-		});
-	} else {
-		// multi select item
-
-		// setup the select and deselect all
-		MenuEle.find(".DropDownSelectAll").click(function(e){
-			e.preventDefault();
-			MenuEle.find("input:checkbox").attr("checked", true);
-
-			TopEle.children("dt").html(AllText + '<span class="caret"></span>');
-			
-		})
-		MenuEle.find(".DropDownDeSelectAll").click(function(e){
-			e.preventDefault();
-			MenuEle.find("input:checkbox").attr("checked", false);
-
-			TopEle.children("dt").html(NoneText + '<span class="caret"></span>');
-		})
-
-		TopEle.find("li label").click(function(){
-			if (TopEle.children("dt").text() == NoneText)
-				TopEle.children("dt").html("");
-			
-			var textval = TopEle.children("dt").text() + ", " + $(this).text();
-			TopEle.children("dt").html((TopEle.children("dt").text() == "" ?  textval.substr(1, textval.length) : textval)  + '<span class="caret"></span>');
-
-		});
-	}
-});
-*/
-// handle the click off
-/*$(document).click(function(e) {
-	if (!$(e.target).closest('.dropdown').length) {
-    	$('.dropdown dd ul').hide();
-  	}
-});*/
 </script>
 </body>
 </html>
