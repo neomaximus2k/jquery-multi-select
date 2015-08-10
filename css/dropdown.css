@@ -8,9 +8,19 @@
 /* DT styles for sliding doors */
 .dropdown dt {cursor:pointer; display:block; padding:0 5px;}
 /* UL styles */
-.dropdown dd ul { background:#e4dfcb none repeat scroll 0 0; display:none;
-    list-style:none; padding:5px 0px; position:absolute; 
-    left:0px; top:2px; width:auto; min-width:170px;}
+.dropdown dd ul { background:#ffffff none repeat scroll 0 0; display:none;
+    list-style:none; padding:5px; position:absolute; 
+    left:-5px; top:6px; width:auto; 
+-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 3px 6px 0px rgba(153,153,153,1);
+box-shadow: 0px 3px 6px 0px rgba(153,153,153,1);
+}
 .dropdown span.value { display:none;}
 .dropdown dd ul li a { padding:5px; display:block;}
 

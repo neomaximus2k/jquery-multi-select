@@ -17,12 +17,27 @@
 </div>
 <br>
 <div class="divexample">
+	<h3>Default Usage - Single Select With Default Selection</h3>
+	<pre>$('#example1a').DropDown();</pre>
+	<select name="example1a" id="example1a"><option value="Brazil">Brazil</option><option value="France">France</option>
+	<option value="Germany">Germany</option><option value="England" selected="selected">England</option></select>
+</div>
+<br>
+<div class="divexample">
 	<h3>Default Usage - Multiple Selections</h3>
 	<pre>$('#example2').DropDown();</pre>
 	<select name="example2" id="example2" multiple="true"><option value="Brazil">Brazil</option><option value="France">France</option>
 	<option value="Germany">Germany</option><option value="England">England</option></select>
 </div>
 <br>
+<div class="divexample">
+	<h3>Default Usage - Multiple Selections With Default Selection</h3>
+	<pre>$('#example2a').DropDown();</pre>
+	<select name="example2a" id="example2a" multiple="true"><option value="Brazil">Brazil</option><option value="France" selected="selected">France</option>
+	<option value="Germany">Germany</option><option value="England" selected="selected">England</option></select>
+</div>
+<br>
+
 <div class="divexample">
 	<h3>Multiple Selections - Select All</h3>
 	<pre>$('#example3').DropDown({'ShowHeader' : true});</pre>
@@ -44,6 +59,23 @@
 	<pre>$('#example5').DropDown({'ItemClass': 'customclass'});</pre>
 	<select name="example5" id="example5" multiple="true"><option value="Brazil">Brazil</option><option value="France" checked="checked">France</option>
 	<option value="Germany">Germany</option></select>
+</div>
+<br>
+<div class="divexample">
+	<h3>Custom Class - Default Selection</h3>
+	<pre>$('#example5a').DropDown({'ItemClass': 'customclass'});</pre>
+	<select name="example5a" id="example5a" multiple="true"><option value="Brazil" selected="selected">Brazil</option><option value="France" checked="checked">France</option>
+	<option value="Germany" selected="selected">Germany</option></select>
+</div>
+<br>
+<div class="divexample">
+	<h3>Changing Number Selected Text</h3>
+	<pre>$('#example6').DropDown({'NumSelectedText': 'countries selected'});</pre>
+	<select name="example6" id="example6" multiple="true"><option value="Brazil">Brazil</option><option value="France" checked="checked">France</option>
+	<option value="Germany">Germany</option>
+	<option value="England">England</option>
+	<option value="Italy">Italy</option>
+	</select>
 </div>
 
 
@@ -111,10 +143,14 @@
 
 <script type="text/javascript">
 $('#example1').DropDown();
+$('#example1a').DropDown();
 $('#example2').DropDown({HideSource: false});
+$('#example2a').DropDown({HideSource: false});
 $('#example3').DropDown({'ShowHeader' : true, HideSource: false});
 $('#example4').DropDown({'ShowHeader' : true, 'AllText' : 'All Countries', 'NoneText' : '-- Please Select Country --', HideSource: false});
 $('#example5').DropDown({'ItemClass': 'customclass', HideSource: false});
+$('#example5a').DropDown({'ItemClass': 'customclass', HideSource: false});
+$('#example6').DropDown({'NumSelectedText': 'countries selected', HideSource: false});
 
 
 /*
@@ -171,11 +207,11 @@ $('.dropdown').each(function(idx){
 });
 */
 // handle the click off
-$(document).click(function(e) {
+/*$(document).click(function(e) {
 	if (!$(e.target).closest('.dropdown').length) {
     	$('.dropdown dd ul').hide();
   	}
-});
+});*/
 </script>
 </body>
 </html>
